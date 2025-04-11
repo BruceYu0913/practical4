@@ -2,9 +2,11 @@
 
 Motorbike::Motorbike(int id) : Vehicle(id) {}
 
+int Motorbike::getParkingDuration() const {
+    return static_cast<int>((time(nullptr) - timeOfEntry) * 0.85);
+}
 int Motorbike::getParkingDuration(time_t durationCalcTime) const {
-    int duration = static_cast<int>(durationCalcTime - timeOfEntry);
-    return static_cast<int>(duration * 0.85);
+    return static_cast<int>((durationCalcTime - timeOfEntry) * 0.85);
 }
 
 Motorbike::~Motorbike() {}
